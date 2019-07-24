@@ -1,0 +1,7 @@
+db_name: pgx_test
+user: postgres
+password: postgres
+host: localhost
+port: 5432
+ssl_mode: disable
+connect_timeout: 5

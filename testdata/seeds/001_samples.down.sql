@@ -1,0 +1,3 @@
+BEGIN;
+  TRUNCATE TABLE samples;
+COMMIT;
