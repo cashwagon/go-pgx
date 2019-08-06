@@ -2,6 +2,18 @@
 
 pgx provides helpers for creating/migrating/seeding PostgreSQL database.
 
+## Notes
+pgx uses [golang-migrate/migrate](https://github.com/golang-migrate/migrate) package,
+which has a [bug](https://github.com/golang-migrate/migrate/issues/79) related with zero migrations.
+When migrations version in `schema_migration` table equals 0,
+it cannot apply or rollback any migrations because it cannot find migration file with version 0.
+
+To avoid this create blank migration with version 0. For example:
+```
+000_null.down.sql
+000_null.up.sql
+```
+
 ## Usage
 
 ```go

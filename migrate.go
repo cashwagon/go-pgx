@@ -46,6 +46,7 @@ func wrapMigration(migrationsPath, dbURL string, fn func(*migrate.Migrate) error
 		return errors.Wrap(err, "could not open migration")
 	}
 	defer m.Close()
+	m.Log = Logger{}
 
 	version, err := getSchemaVersion(m)
 	if err != nil {
